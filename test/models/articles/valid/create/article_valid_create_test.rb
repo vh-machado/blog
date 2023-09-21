@@ -13,10 +13,8 @@ class ArticleValidCreateTest < ActiveSupport::TestCase
   # end
 
   test "should test if an article is valid" do
-    50.times do
-      article = Article.new(title: 'Test title', body: 'Test body string value should have at least 10 words')
+    article = Article.new(title: 'Test title', body: 'Test body string value should have at least 10 words', status: 'public')
       
-      assert article.valid?
-    end
+    assert article.valid?
   end
 end

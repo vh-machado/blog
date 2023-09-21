@@ -1,0 +1,8 @@
+pt-BR:
+  activerecord:
+    errors:
+      models:
+        article:
+          attributes:
+            body:
+              too_short: "deveria ter pelo menos 10 palavras"
