@@ -4,12 +4,14 @@ Our blog has <%= Article.public_count %> articles and counting!
 
 <ul>
   <% @articles.each do |article| %>
-    <% unless article.archived? %>
-      <li>
-        <%= link_to article.title, article %>
-      </li>
-    <% end %>
+    <div class="article">
+      <% unless article.archived? %>
+        <li>
+          <%= link_to article.title, article %>
+        </li>
+      <% end %>
+    </div>
   <% end %>
 </ul>
 
-<%= link_to "New Article", new_article_path %>
+<%= button_to "New Article", new_article_path, :method => :get %>
