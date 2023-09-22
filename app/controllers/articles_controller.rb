@@ -1,12 +1,22 @@
 class ArticlesController < ApplicationController
   http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
-  
+
+  # criar tabela de usuários (login, nickname, password, is_admin, is_logged_in)
+  # criar seeds com 1 admin e 1 usuário convencional
+  # quando um usuário logar, o campo is_logged_in vai para true
+  # criar pagina de administração, todas as actions
+  # limitar actions na homepage apenas para visualizar e adicionar comentário
+  # só é possível comentar se o usuário estiver logado
+  # página de administração vai ter um login, e só vai permitir o login da página de administração se ele for um admin
+  # página de cadastro
+
+  before_action :set_article, only: %i[show edit update destroy]
+
   def index
     @articles = Article.all
   end
 
   def show
-    @article = Article.find(params[:id])
   end
 
   def new
@@ -24,12 +34,9 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:id])
-
     if @article.update(article_params)
       redirect_to @article
     else
@@ -38,13 +45,16 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
     @article.destroy
 
     redirect_to root_path, status: :see_other
   end
 
   private
+
+  def set_article
+    @article = Article.find(params[:id])
+  end
 
   def article_params
     params.require(:article).permit(:title, :body, :status)
