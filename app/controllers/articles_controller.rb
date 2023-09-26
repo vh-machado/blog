@@ -1,8 +1,8 @@
 class ArticlesController < ApplicationController
   http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
 
-  # criar tabela de usuários (login, nickname, password, is_admin, is_logged_in)
-  # criar seeds com 1 admin e 1 usuário convencional
+  # OK - criar tabela de usuários (login, nickname, password, is_admin, is_logged_in)
+  # OK - criar seeds com 1 admin e 1 usuário convencional
   # quando um usuário logar, o campo is_logged_in vai para true
   # criar pagina de administração, todas as actions
   # limitar actions na homepage apenas para visualizar e adicionar comentário
