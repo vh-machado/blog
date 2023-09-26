@@ -7,3 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 articles = Article.create([{ title: 'artigo seed', body: 's s s s s s s s s s', status: 'public' }])
+users = User.create([
+  { login: 'admin@email.com', nickname: 'admin', password: 'admin123', is_admin: true, is_logged_in: false },
+  { login: 'user@email.com', nickname: 'user', password: 'user1234', is_logged_in: false }
+])
