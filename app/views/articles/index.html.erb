@@ -1,9 +1,9 @@
 <% if current_user %>
-  <%= button_to "Log out", login_path(current_user), data: { turbo_method: :delete } %>
+  <%= button_to "Log out", login_path(current_user), method: :delete %>
 <% else %>
   <%= button_to "Sign up", new_user_path, :method => :get %>
 
-  <%= button_to "Sign in", login_path, :method => :get %>
+  <%= button_to "Sign in", new_login_path, :method => :get %>
 <% end %>
 
 <h1>Articles</h1>

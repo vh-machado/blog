@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments, only: %i[create destroy]
   end
-  resource :login, only: %i[new create destroy], path_names: { new: '' }
+  resources :logins, only: %i[new create destroy]
   resources :users
 end
