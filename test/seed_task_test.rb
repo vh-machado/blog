@@ -1,15 +1,15 @@
 require "test_helper"
 
 class SeedTaskTest < ActiveSupport::TestCase
-  load "db/seeds.rb"
+  setup do
+    load "db/seeds.rb"
+  end
 
   test "should create 1 article" do
-    articles = Article.all
-    assert_equal articles.size, 1
+    assert_equal Article.count, 1
   end
 
   test "should create 2 users" do
-    users = User.all
-    assert_equal users.size, 2
+    assert_equal User.count, 2
   end
 end

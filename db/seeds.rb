@@ -6,8 +6,28 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-articles = Article.create([{ title: 'artigo seed', body: 's s s s s s s s s s', status: 'public' }])
+articles = Article.create([
+  { 
+    title: 'artigo seed', 
+    body: 's s s s s s s s s s', 
+    status: 'public' 
+  }
+])
+
 users = User.create([
-  { login: 'admin@email.com', nickname: 'admin', password: 'admin123', is_admin: true, is_logged_in: false },
-  { login: 'user@email.com', nickname: 'user', password: 'user1234', is_logged_in: false }
+  { 
+    login: 'admin@email.com', 
+    nickname: 'admin', 
+    password_digest: 'admin123', 
+    password_confirmation: nil, 
+    is_admin: true, 
+    is_logged_in: false 
+  },
+  { 
+    login: 'user@email.com', 
+    nickname: 'user', 
+    password_digest: 'user1234', 
+    password_confirmation: nil, 
+    is_logged_in: false 
+  }
 ])
